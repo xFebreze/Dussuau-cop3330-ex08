@@ -1,4 +1,7 @@
 package Base;
+
+import java.util.Scanner;
+
 /*
 UCF COP3330 Summer 2021 Assignment 1 Solution
 Copyright 2021 Alek Dussuau
@@ -30,6 +33,31 @@ calculate how many full pizzas you need to purchase.
  */
 public class App {
     public static void main(String[] args){
+        //scanner
+        Scanner input = new Scanner(System.in);
+
+        //inputs
+        System.out.print("How many people? ");
+        String s_people = input.nextLine();
+        System.out.print("How many pizzas do you have? ");
+        String s_pizzas = input.nextLine();
+        System.out.print("How many slices per pizza? ");
+        String s_slices = input.nextLine();
+
+        //parsing
+        int people = Integer.parseInt(s_people);
+        int pizzas = Integer.parseInt(s_pizzas);
+        int slices = Integer.parseInt(s_slices);
+
+        //math
+        int total_slices = pizzas * slices;
+        int slices_per_person = total_slices / people;
+        int leftover = total_slices % people;
+
+        //outputs
+        System.out.printf("%d people with %d pizzas (%d slices)\n",people,pizzas,total_slices);
+        System.out.printf("Each person gets %d pieces of pizza.\n",slices_per_person);
+        System.out.printf("There are %d leftover pieces.",leftover);
 
     }
 }
